@@ -1,11 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор печати на ткани</title>
+    <title>Привет</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.calc.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#slider-horizontal").slider({
+                range: "min",
+                min: 0,
+                max: 100,
+                value: 60,
+                slide: function (event, ui) {
+                    $("#horizon").val(ui.value);
+                }
+            });
+            $("#horizon").val($("#slider-horizontal").slider("value"));
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#slider-vertical").slider({
+                orientation: "vertical",
+                range: "min",
+                min: 0,
+                max: 100,
+                value: 60,
+                slide: function (event, ui) {
+                    $("#amount").val(ui.value);
+                }
+            });
+            $("#amount").val($("#slider-vertical").slider("value"));
+        });
+    </script>
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#"><i class="fas fa-amazon    "></i>Dimitex </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Цены <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Технология</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"
+                            aria-hidden="true"></i>Ткани</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#"> <i class="fa fa-500px" aria-hidden="true"></i>Лен</a>
+                        <a class="dropdown-item" href="#">Шерсть</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Искать ткань">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
+            </form>
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Калькулятор печати на ткани</h1>
+            <p class="lead">Узнайте точную цену</p>
+            <hr class="my-2">
+            <p>Мы сделали удобную форму для расчета стоитмости ткани</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#calc_div" role="button">Начать расчет</a>
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <img src="img/paint_water_liquid_85058_1600x1200.jpg"
+                    class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                    alt="">
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <h2>Калькулятор быстрой печати</h2>
+                <P>Можно ввести данные самостоятельно, а можно вводить данные путем изменения слайдеров</P>
+            </div>
+        </div>
+    </div>
     
+    <div class="container" id="calc_div">
+        <h1>Калькулятор</h1>
+        <div class="row">
+           
+            <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                  <label for="fabrics">Выберите ткань</label>
+                  <select class="form-control" name="fabrics" id="fabrics">
+                    <option>Лен</option>
+                    <option>Шелк</option>
+                    <option>Полиэстер</option>
+                  </select>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="hdprint" id="hdprint" value="checkedValue" checked>
+                    HD-печать
+                  </label>
+                </div>
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    <small id="helpId" class="text-muted">Help text</small>
+                </div>
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    <small id="helpId" class="text-muted">Help text</small>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+
+                <p>
+                    <label for="horizon">Ширина:</label>
+                    <input type="text" id="horizon" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                </p>
+                <div id="slider-horizontal" style="height:10px;"></div>
+                <p>
+                    <label for="amount">Volume:</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                </p>
+
+                <div id="slider-vertical" style="height:200px;"></div>
+
+            </div>
+        </div>
+    </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="js/bootstrap.js"></script>
 </body>
+
 </html>
